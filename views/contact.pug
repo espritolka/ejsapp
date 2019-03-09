@@ -1,22 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>#{title}</title>
-    <meta charset="utf-8" />
-</head>
-<body>
-      
-    h1 #{title} в Pug
-      
-    if emailsVisible
-        h3 Электронные адреса
-        ul
-            each email in emails
-                li=email
-    else
-        h3 Электроннный адрес отсутствует
-    p Телефон: #{phone}
+extends layout.pug
 
-    include footer.pug
-</body>
-<html>
+block title
+<title>#{title}</title>
+
+block content
+
+if emailsVisible
+<h3>Электронные адреса</h3>
+<ul>
+each email in emails
+ <li>#{email}</li>
+</ul>
+else
+<h3>Электронный адрес отсутствует</h3>
+<p>Телефон: #{phone}</p>
